@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=3 uid="uid://dp67cdr8wo7mx"]
+
+[ext_resource type="Script" path="res://player_base.gd" id="1_pqcb6"]
+[ext_resource type="Texture2D" uid="uid://bsggin5ia11xx" path="res://13620-v4.jpg" id="2_nk7a5"]
+[ext_resource type="Script" path="res://CameraSpringArm.gd" id="3_d3r00"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmbno"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_23ga0"]
+material = SubResource("StandardMaterial3D_fmbno")
+
+[sub_resource type="SphereMesh" id="SphereMesh_f0ypt"]
+radius = 0.054
+height = 0.108
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdgml"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("2_nk7a5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ogl8h"]
+radius = 0.064
+height = 0.127
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqs46"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("2_nk7a5")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycmm3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ytxwo"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_762he"]
+radius = 2.0
+
+[node name="PlayerBase" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_pqcb6")
+metadata/_edit_lock_ = true
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00518924, 0)
+
+[node name="ModelPivot" type="Node3D" parent="Pivot"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.100431, 0)
+
+[node name="ModelFacing" type="Node3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 1)
+
+[node name="CastingOrigin" type="Node3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.892852, 0)
+visible = false
+mesh = SubResource("CylinderMesh_23ga0")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
+light_color = Color(0, 0, 1, 1)
+light_energy = 5.0
+spot_range = 3.856
+spot_attenuation = 0.812252
+spot_angle = 9.37
+
+[node name="BallModel" type="Node3D" parent="Pivot/ModelPivot"]
+
+[node name="BallStinger" type="MeshInstance3D" parent="Pivot/ModelPivot/BallModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+visible = false
+mesh = SubResource("SphereMesh_f0ypt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_cdgml")
+
+[node name="BallBlocker" type="MeshInstance3D" parent="Pivot/ModelPivot/BallModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+visible = false
+mesh = SubResource("SphereMesh_ogl8h")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gqs46")
+
+[node name="CameraYaw" type="Marker3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+gizmo_extents = 0.0
+
+[node name="CameraPitch" type="Node3D" parent="Pivot/CameraYaw"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="CameraSpringArm" type="SpringArm3D" parent="Pivot/CameraYaw/CameraPitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+shape = SubResource("SphereShape3D_ycmm3")
+spring_length = 2.0
+margin = 0.02
+script = ExtResource("3_d3r00")
+
+[node name="PlayerCamera" type="Camera3D" parent="Pivot/CameraYaw/CameraPitch/CameraSpringArm"]
+transform = Transform3D(-1, 4.41072e-08, -7.54804e-08, 0, 0.863396, 0.504528, 8.74228e-08, 0.504528, -0.863396, -3.41061e-13, 0, -4.76837e-07)
+
+[node name="CameraFacing" type="Node3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00855, 0)
+shape = SubResource("CylinderShape3D_ytxwo")
+
+[node name="BallPickupArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BallPickupArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00292, 0)
+shape = SubResource("CylinderShape3D_762he")
+
+[connection signal="body_entered" from="BallPickupArea" to="." method="_on_ball_pickup_area_body_entered"]
+[connection signal="body_exited" from="BallPickupArea" to="." method="_on_ball_pickup_area_body_exited"]

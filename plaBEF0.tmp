@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp67cdr8wo7mx"]
+
+[ext_resource type="Script" path="res://player_base.gd" id="1_pqcb6"]
+[ext_resource type="Script" path="res://CameraSpringArm.gd" id="3_d3r00"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_23ga0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycmm3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ytxwo"]
+
+[node name="PlayerBase" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_pqcb6")
+metadata/_edit_lock_ = true
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00518924, 0)
+
+[node name="ModelPivot" type="Node3D" parent="Pivot"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.100431, 0)
+
+[node name="ModelFacing" type="Node3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 1)
+
+[node name="CastingOrigin" type="Node3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.025, 0)
+mesh = SubResource("CylinderMesh_23ga0")
+
+[node name="CameraYaw" type="Marker3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+gizmo_extents = 0.0
+
+[node name="CameraPitch" type="Node3D" parent="Pivot/CameraYaw"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="CameraSpringArm" type="SpringArm3D" parent="Pivot/CameraYaw/CameraPitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+shape = SubResource("SphereShape3D_ycmm3")
+spring_length = 2.0
+margin = 0.02
+script = ExtResource("3_d3r00")
+
+[node name="PlayerCamera" type="Camera3D" parent="Pivot/CameraYaw/CameraPitch/CameraSpringArm"]
+transform = Transform3D(-1, 4.41072e-08, -7.54804e-08, 0, 0.863396, 0.504528, 8.74228e-08, 0.504528, -0.863396, -3.41061e-13, 0, -4.76837e-07)
+
+[node name="CameraFacing" type="Node3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02033, 0)
+shape = SubResource("CylinderShape3D_ytxwo")

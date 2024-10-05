@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dewlego4xftum"
+path.s3tc="res://.godot/imported/CatchingBlocker-208be2e2481134abe705cf66391fc3bb_ao_met_rough_Ch09_1001_Glossiness.png-8117dc4230fbe5d9a8a7f490089b2b83.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "bb46f001522954381019a5af610b696a"
+}
+
+[deps]
+
+source_file="res://BadGirl/CatchingBlocker-208be2e2481134abe705cf66391fc3bb_ao_met_rough_Ch09_1001_Glossiness.png"
+dest_files=["res://.godot/imported/CatchingBlocker-208be2e2481134abe705cf66391fc3bb_ao_met_rough_Ch09_1001_Glossiness.png-8117dc4230fbe5d9a8a7f490089b2b83.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

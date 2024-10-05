@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=3 uid="uid://d33nnaefsv56k"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_6b371"]
+[ext_resource type="PackedScene" uid="uid://dp67cdr8wo7mx" path="res://player_base.tscn" id="2_6uoxg"]
+[ext_resource type="PackedScene" uid="uid://cmo3wx3tr0r7g" path="res://loose_ball_blocker.tscn" id="3_upvn1"]
+[ext_resource type="PackedScene" uid="uid://bmylkpe7k3ugr" path="res://loose_ball_stinger.tscn" id="4_ne0nk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_av3sp"]
+size = Vector3(14, 2, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_twvcr"]
+size = Vector3(14, 2, 24)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7h6x"]
+custom_solver_bias = 1.0
+size = Vector3(14, 12, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5v0dc"]
+size = Vector3(14, 12, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6mvv8"]
+size = Vector3(2, 12, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m48tw"]
+size = Vector3(2, 12, 24)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_6b371")
+
+[node name="Ground" type="StaticBody3D" parent="." groups=["Court"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_av3sp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_twvcr")
+
+[node name="BackWall" type="StaticBody3D" parent="." groups=["Court"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 11)
+shape = SubResource("BoxShape3D_d7h6x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BackWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 11)
+mesh = SubResource("BoxMesh_5v0dc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BackWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 9)
+omni_range = 14.0
+
+[node name="LeftWall" type="StaticBody3D" parent="." groups=["Court"]]
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 0)
+shape = SubResource("BoxShape3D_6mvv8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 0)
+mesh = SubResource("BoxMesh_m48tw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 8, 6)
+omni_range = 15.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 8, -5)
+omni_range = 15.0
+
+[node name="RightWall" type="StaticBody3D" parent="." groups=["Court"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 5, 0)
+shape = SubResource("BoxShape3D_6mvv8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 5, 0)
+mesh = SubResource("BoxMesh_m48tw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8, 6)
+omni_range = 15.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="RightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8, -5)
+omni_range = 15.0
+
+[node name="FrontWall" type="StaticBody3D" parent="." groups=["Court"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -22)
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 11)
+shape = SubResource("BoxShape3D_d7h6x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FrontWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 11)
+mesh = SubResource("BoxMesh_5v0dc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
+shadow_enabled = true
+
+[node name="PlayerBase" parent="." instance=ExtResource("2_6uoxg")]
+
+[node name="LooseBallBlocker" parent="." instance=ExtResource("3_upvn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="LooseBallStinger" parent="." instance=ExtResource("4_ne0nk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48117, 0, 0)
+
+[node name="LooseBallBlocker2" parent="." instance=ExtResource("3_upvn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="LooseBallBlocker3" parent="." instance=ExtResource("3_upvn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="LooseBallStinger2" parent="." instance=ExtResource("4_ne0nk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53114, 0, 0)
+
+[node name="LooseBallBlocker4" parent="." instance=ExtResource("3_upvn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)

@@ -1,0 +1,196 @@
+[gd_scene load_steps=21 format=3 uid="uid://dp67cdr8wo7mx"]
+
+[ext_resource type="Script" path="res://player_base.gd" id="1_pqcb6"]
+[ext_resource type="Texture2D" uid="uid://bsggin5ia11xx" path="res://13620-v4.jpg" id="2_nk7a5"]
+[ext_resource type="Script" path="res://ball_blocker_model.gd" id="2_v0yh5"]
+[ext_resource type="AudioStream" uid="uid://bimt2wcyyojk2" path="res://referee-whistle-blow-gymnasium-6320.mp3" id="3_oscti"]
+[ext_resource type="Script" path="res://ball_stinger_model.gd" id="4_qgl0k"]
+[ext_resource type="AudioStream" uid="uid://dacxmp0pc1gvt" path="res://oof-button.mp3" id="5_djs77"]
+[ext_resource type="AudioStream" uid="uid://cndiccjupf1h7" path="res://crowd-applause-236697.mp3" id="5_l0pul"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ytxwo"]
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmbno"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_23ga0"]
+material = SubResource("StandardMaterial3D_fmbno")
+height = 1.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5laob"]
+height = 1.0
+radius = 0.108
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evga6"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("2_nk7a5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ogl8h"]
+material = SubResource("StandardMaterial3D_evga6")
+radius = 0.108
+height = 0.216
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqs46"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("2_nk7a5")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1iktj"]
+radius = 0.054
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvn6p"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("2_nk7a5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_f0ypt"]
+material = SubResource("StandardMaterial3D_uvn6p")
+radius = 0.054
+height = 0.108
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdgml"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("2_nk7a5")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xndg0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_762he"]
+height = 3.0
+radius = 3.0
+
+[node name="PlayerBase" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+collision_layer = 4
+collision_mask = 19
+safe_margin = 0.1
+script = ExtResource("1_pqcb6")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_ytxwo")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00518924, 0)
+
+[node name="ModelPivot" type="Node3D" parent="Pivot"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="ModelFacing" type="Node3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+mesh = SubResource("CylinderMesh_23ga0")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, -1.02318e-13, -4.47247e-21, 0, -4.37114e-08, 1, -1.02318e-13, -1, -4.37114e-08, 0, 7, 0)
+light_color = Color(1, 1, 0, 1)
+light_energy = 16.0
+light_negative = true
+light_bake_mode = 1
+spot_range = 10.0
+spot_angle = 10.0
+
+[node name="BallModel" type="Node3D" parent="Pivot/ModelPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+
+[node name="BallBlockerModel" type="CharacterBody3D" parent="Pivot/ModelPivot/BallModel" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_v0yh5")
+
+[node name="BlockingRegion" type="CollisionShape3D" parent="Pivot/ModelPivot/BallModel/BallBlockerModel"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_5laob")
+disabled = true
+
+[node name="BallBlockerMesh" type="MeshInstance3D" parent="Pivot/ModelPivot/BallModel/BallBlockerModel"]
+mesh = SubResource("SphereMesh_ogl8h")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gqs46")
+
+[node name="BallBlockerThrowOrigin" type="Node3D" parent="Pivot/ModelPivot/BallModel/BallBlockerModel"]
+
+[node name="BallStingerModel" type="CharacterBody3D" parent="Pivot/ModelPivot/BallModel" groups=["Player"]]
+visible = false
+disable_mode = 1
+collision_layer = 4
+collision_mask = 2
+input_ray_pickable = false
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("4_qgl0k")
+
+[node name="BlockingRegion" type="CollisionShape3D" parent="Pivot/ModelPivot/BallModel/BallStingerModel"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_1iktj")
+disabled = true
+
+[node name="BallStingerMesh" type="MeshInstance3D" parent="Pivot/ModelPivot/BallModel/BallStingerModel"]
+mesh = SubResource("SphereMesh_f0ypt")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_cdgml")
+
+[node name="BallStingerThrowOrigin" type="Node3D" parent="Pivot/ModelPivot/BallModel/BallStingerModel"]
+
+[node name="CameraYaw" type="Marker3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+gizmo_extents = 0.0
+
+[node name="CameraPitch" type="Node3D" parent="Pivot/CameraYaw"]
+transform = Transform3D(1, 0, 0, 0, 0.796815, 0.604224, 0, -0.604224, 0.796815, 0, 1.5, 0)
+
+[node name="CameraSpringArm3D" type="SpringArm3D" parent="Pivot/CameraYaw/CameraPitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -2)
+shape = SubResource("SphereShape3D_xndg0")
+
+[node name="PlayerCamera" type="Camera3D" parent="Pivot/CameraYaw/CameraPitch/CameraSpringArm3D"]
+transform = Transform3D(-1, -5.23683e-08, 7.00021e-08, 0, 0.800731, 0.599023, -8.74228e-08, 0.599023, -0.800731, 0, 0, 0)
+
+[node name="CameraFacing" type="Node3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 1)
+
+[node name="BallPickupArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 10
+monitorable = false
+metadata/is_player_base = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BallPickupArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_762he")
+metadata/is_player_base = true
+
+[node name="DodgeTimer" type="Timer" parent="." groups=["Player"]]
+wait_time = 0.5
+one_shot = true
+
+[node name="BlockTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="ErrorAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_oscti")
+
+[node name="ApplauseAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_l0pul")
+
+[node name="OofAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_djs77")
+volume_db = 10.0
+max_db = 6.0
+pitch_scale = 0.9
+max_polyphony = 5
+
+[connection signal="ball_blocked" from="Pivot/ModelPivot/BallModel/BallBlockerModel" to="." method="_on_ball_model_ball_blocked"]
+[connection signal="ball_blocked" from="Pivot/ModelPivot/BallModel/BallStingerModel" to="." method="_on_ball_model_ball_blocked"]
+[connection signal="body_entered" from="BallPickupArea" to="." method="_on_ball_pickup_area_body_entered"]
+[connection signal="body_exited" from="BallPickupArea" to="." method="_on_ball_pickup_area_body_exited"]
+[connection signal="timeout" from="DodgeTimer" to="." method="_on_dodge_timer_timeout"]
+[connection signal="timeout" from="BlockTimer" to="." method="_on_block_timer_timeout"]

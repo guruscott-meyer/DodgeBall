@@ -1,0 +1,363 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmbv7n0dq2s6f"]
+
+[ext_resource type="Texture2D" uid="uid://bsggin5ia11xx" path="res://13620-v4.jpg" id="1_qimoi"]
+[ext_resource type="Script" path="res://main_menu.gd" id="2_0eufp"]
+[ext_resource type="AudioStream" uid="uid://sa6eob62uubj" path="res://loud-children-crowd-outdoors-448.wav" id="3_7jwt3"]
+
+[sub_resource type="SystemFont" id="SystemFont_q28oq"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8ebq"]
+font = SubResource("SystemFont_q28oq")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_yusgw"]
+font = SubResource("SystemFont_q28oq")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_gdmap"]
+font = SubResource("SystemFont_q28oq")
+font_size = 20
+
+[sub_resource type="Theme" id="Theme_y56oc"]
+default_base_scale = 0.5
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenu" type="Node" parent="."]
+script = ExtResource("2_0eufp")
+
+[node name="Background" type="TextureRect" parent="MainMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qimoi")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MainMenu"]
+
+[node name="Main" type="Control" parent="MainMenu/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/CanvasLayer/Main/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Dodge Ball"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPlay" type="Button" parent="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play"
+
+[node name="ButtonSettings" type="Button" parent="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="ButtonScores" type="Button" parent="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "High Scores"
+
+[node name="ButtonQuit" type="Button" parent="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit
+"
+
+[node name="RunOptions" type="Control" parent="MainMenu/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/CanvasLayer/RunOptions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/CanvasLayer/RunOptions/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Dodge Ball"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonShortGame" type="Button" parent="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "5 Minutes"
+
+[node name="ButtonMedGame" type="Button" parent="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "15 Minutes"
+
+[node name="ButtonLongGame" type="Button" parent="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "40 Minutes"
+
+[node name="ButtonTutorial" type="Button" parent="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tutorial"
+
+[node name="ButtonBack" type="Button" parent="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit
+"
+
+[node name="Settings" type="Control" parent="MainMenu/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/CanvasLayer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/CanvasLayer/Settings/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Settings
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DifficultyLabel" type="Label" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Difficulty"
+label_settings = SubResource("LabelSettings_y8ebq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DifficultySlider" type="HSlider" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+tick_count = 3
+
+[node name="LifeCountLabel" type="Label" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Life Count
+"
+label_settings = SubResource("LabelSettings_yusgw")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="LifeCountSlider" type="HSlider" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+value = 5.0
+
+[node name="MobCountLabel" type="Label" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mob Count"
+label_settings = SubResource("LabelSettings_gdmap")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="MobCountSlider" type="HSlider" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+value = 5.0
+
+[node name="ButtonSettingsBack" type="Button" parent="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Back"
+
+[node name="HighScores" type="Control" parent="MainMenu/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/CanvasLayer/HighScores"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/CanvasLayer/HighScores/CenterContainer"]
+custom_minimum_size = Vector2(1024, 512)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/CanvasLayer/HighScores/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainMenu/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="EnterLabel" type="Label" parent="MainMenu/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "High Scores
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="MainMenu/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+clip_contents = false
+layout_direction = 1
+layout_mode = 2
+theme = SubResource("Theme_y56oc")
+allow_search = false
+auto_height = true
+item_count = 11
+max_columns = 11
+same_column_width = true
+item_0/text = "Name"
+item_0/selectable = false
+item_1/text = "Time"
+item_1/selectable = false
+item_2/text = "Score"
+item_2/selectable = false
+item_2/disabled = true
+item_3/text = "Opp Sc"
+item_3/selectable = false
+item_4/text = "Difficulty"
+item_4/selectable = false
+item_5/text = "Life"
+item_5/selectable = false
+item_6/text = "Mobs"
+item_6/selectable = false
+item_7/text = "Rounds"
+item_7/selectable = false
+item_8/text = "Throws"
+item_8/selectable = false
+item_9/text = "Blocks"
+item_9/selectable = false
+item_10/text = "Catches"
+item_10/selectable = false
+
+[node name="BackButton" type="Button" parent="MainMenu/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7jwt3")
+volume_db = -8.0
+autoplay = true
+
+[connection signal="pressed" from="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonPlay" to="MainMenu" method="_on_button_play_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonSettings" to="MainMenu" method="_on_button_settings_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonScores" to="MainMenu" method="_on_button_scores_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonQuit" to="MainMenu" method="_on_button_quit_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonShortGame" to="MainMenu" method="_on_button_short_game_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonMedGame" to="MainMenu" method="_on_button_med_game_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonLongGame" to="MainMenu" method="_on_button_long_game_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonTutorial" to="MainMenu" method="_on_button_tutorial_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/RunOptions/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonBack" to="MainMenu" method="_on_button_back_pressed"]
+[connection signal="drag_ended" from="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/DifficultySlider" to="MainMenu" method="_on_difficulty_slider_drag_ended"]
+[connection signal="drag_ended" from="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/LifeCountSlider" to="MainMenu" method="_on_life_count_slider_drag_ended"]
+[connection signal="drag_ended" from="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/MobCountSlider" to="MainMenu" method="_on_mob_count_slider_drag_ended"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/ButtonSettingsBack" to="MainMenu" method="_on_button_settings_back_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/BackButton" to="MainMenu" method="_on_high_scores_back_button_pressed"]

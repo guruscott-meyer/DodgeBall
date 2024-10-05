@@ -1,0 +1,252 @@
+[gd_scene load_steps=4 format=3 uid="uid://da5tdinpmjq3r"]
+
+[ext_resource type="Texture2D" uid="uid://bsggin5ia11xx" path="res://13620-v4.jpg" id="1_6fibj"]
+[ext_resource type="Script" path="res://final_score.gd" id="1_wr8qm"]
+[ext_resource type="LabelSettings" uid="uid://lwodwpba6umy" path="res://menu_label_settings.tres" id="2_x1xdk"]
+
+[node name="FinalScore" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FinalScore" type="Node" parent="."]
+script = ExtResource("1_wr8qm")
+
+[node name="Background" type="TextureRect" parent="FinalScore"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6fibj")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="FinalScore"]
+
+[node name="Scores" type="Control" parent="FinalScore/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="FinalScore/CanvasLayer/Scores"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="FinalScore/CanvasLayer/Scores/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="ScoreLabel" type="Label" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Final Score
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OpponentScore" type="Label" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Opponent Score"
+label_settings = ExtResource("2_x1xdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DifficultyLabel" type="Label" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Difficulty"
+label_settings = ExtResource("2_x1xdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="LifeCountLabel" type="Label" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Life Count
+"
+label_settings = ExtResource("2_x1xdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="MobCountLabel" type="Label" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mob Count"
+label_settings = ExtResource("2_x1xdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="TotalRounds" type="Label" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total Rounds
+"
+label_settings = ExtResource("2_x1xdk")
+horizontal_alignment = 1
+
+[node name="TotalThrows" type="Label" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total Throws"
+label_settings = ExtResource("2_x1xdk")
+horizontal_alignment = 1
+
+[node name="TotalCatches" type="Label" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total Catches"
+label_settings = ExtResource("2_x1xdk")
+horizontal_alignment = 1
+
+[node name="TotalBlocks" type="Label" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total Blocks"
+label_settings = ExtResource("2_x1xdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreButton" type="Button" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "High Scores"
+
+[node name="BackButton" type="Button" parent="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="EnterName" type="Control" parent="FinalScore/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="FinalScore/CanvasLayer/EnterName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="FinalScore/CanvasLayer/EnterName/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="FinalScore/CanvasLayer/EnterName/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="FinalScore/CanvasLayer/EnterName/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FinalScore/CanvasLayer/EnterName/CenterContainer/PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="EnterLabel" type="Label" parent="FinalScore/CanvasLayer/EnterName/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Enter Your Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="FinalScore/CanvasLayer/EnterName/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+max_length = 32
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+
+[node name="EnterButton" type="Button" parent="FinalScore/CanvasLayer/EnterName/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Enter"
+
+[node name="HighScores" type="Control" parent="FinalScore/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="FinalScore/CanvasLayer/HighScores"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="FinalScore/CanvasLayer/HighScores/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="FinalScore/CanvasLayer/HighScores/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="FinalScore/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FinalScore/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="EnterLabel" type="Label" parent="FinalScore/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "High Scores
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="FinalScore/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+allow_search = false
+auto_height = true
+max_columns = 10
+
+[node name="EnterButton" type="Button" parent="FinalScore/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HighScoreButton" to="FinalScore" method="_on_high_score_button_pressed"]
+[connection signal="pressed" from="FinalScore/CanvasLayer/Scores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/BackButton" to="FinalScore" method="_on_back_button_pressed"]
+[connection signal="pressed" from="FinalScore/CanvasLayer/EnterName/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/EnterButton" to="FinalScore" method="_on_enter_button_pressed"]
+[connection signal="pressed" from="FinalScore/CanvasLayer/HighScores/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/EnterButton" to="FinalScore" method="_on_enter_button_pressed"]

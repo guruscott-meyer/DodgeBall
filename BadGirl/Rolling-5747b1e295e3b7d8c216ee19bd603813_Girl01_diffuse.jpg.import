@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dr4wvxqowt8d1"
+path.s3tc="res://.godot/imported/Rolling-5747b1e295e3b7d8c216ee19bd603813_Girl01_diffuse.jpg-269a7e7fb676422c0fea0ead20d27fc4.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "c0216264ccf8b48aa8cbe4b2eb912e44"
+}
+
+[deps]
+
+source_file="res://BadGirl/Rolling-5747b1e295e3b7d8c216ee19bd603813_Girl01_diffuse.jpg"
+dest_files=["res://.godot/imported/Rolling-5747b1e295e3b7d8c216ee19bd603813_Girl01_diffuse.jpg-269a7e7fb676422c0fea0ead20d27fc4.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

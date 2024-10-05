@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bivb2pwm2c2k4"
+path.s3tc="res://.godot/imported/Victory-3e61f8b2f07169553d7c7a0b099bfdba_Girl01_normal.jpg-13d36e3efe38b158a436d3de4aac239f.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "03a4798f6e931295836453e2d65e4ad9"
+}
+
+[deps]
+
+source_file="res://BadGirl/Victory-3e61f8b2f07169553d7c7a0b099bfdba_Girl01_normal.jpg"
+dest_files=["res://.godot/imported/Victory-3e61f8b2f07169553d7c7a0b099bfdba_Girl01_normal.jpg-13d36e3efe38b158a436d3de4aac239f.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://BadGirl/Victory-3e61f8b2f07169553d7c7a0b099bfdba_Girl01_normal.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

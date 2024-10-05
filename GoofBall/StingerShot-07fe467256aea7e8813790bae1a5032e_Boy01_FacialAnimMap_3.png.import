@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c7dxk7fl44s7c"
+path.s3tc="res://.godot/imported/StingerShot-07fe467256aea7e8813790bae1a5032e_Boy01_FacialAnimMap_3.png-5d568cdcd14b8c20b15ce88c78ef7ac2.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "d923fbd2b93863423283499dfdc246a7"
+}
+
+[deps]
+
+source_file="res://GoofBall/StingerShot-07fe467256aea7e8813790bae1a5032e_Boy01_FacialAnimMap_3.png"
+dest_files=["res://.godot/imported/StingerShot-07fe467256aea7e8813790bae1a5032e_Boy01_FacialAnimMap_3.png-5d568cdcd14b8c20b15ce88c78ef7ac2.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bq84titigp25d"
+
+[deps]
+
+files=["res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation"]
+
+source_file="res://high_scores.csv"
+dest_files=["res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation", "res://high_scores.0.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwtoepy0qoa63"]
+
+[ext_resource type="Script" path="res://ball_blocker.gd" id="1_lslfk"]
+[ext_resource type="Texture2D" uid="uid://bsggin5ia11xx" path="res://13620-v4.jpg" id="2_oocpl"]
+[ext_resource type="AudioStream" uid="uid://p8twie2k3ugk" path="res://dodgeball-sound.mp3" id="3_yi7ha"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xijjn"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("2_oocpl")
+
+[sub_resource type="SphereMesh" id="SphereMesh_p4iyk"]
+material = SubResource("StandardMaterial3D_xijjn")
+radius = 0.108
+height = 0.216
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hooc5"]
+radius = 0.108
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85huh"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_v58pn"]
+material = SubResource("StandardMaterial3D_85huh")
+radius = 0.11
+height = 0.22
+
+[node name="BallBlocker" type="CharacterBody3D" groups=["ThrownBall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_lslfk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_p4iyk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_hooc5")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_yi7ha")
+volume_db = 6.0
+max_db = 6.0
+pitch_scale = 0.85
+max_distance = 20.0
+max_polyphony = 5
+
+[node name="Highlight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_v58pn")

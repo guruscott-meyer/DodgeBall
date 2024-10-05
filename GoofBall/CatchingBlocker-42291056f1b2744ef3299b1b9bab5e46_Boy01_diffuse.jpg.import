@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://d2ck3ghw1cstf"
+path.s3tc="res://.godot/imported/CatchingBlocker-42291056f1b2744ef3299b1b9bab5e46_Boy01_diffuse.jpg-39d559a8fb16a56366a8e044ee363792.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "99b717191be26025aae3a8352769a324"
+}
+
+[deps]
+
+source_file="res://GoofBall/CatchingBlocker-42291056f1b2744ef3299b1b9bab5e46_Boy01_diffuse.jpg"
+dest_files=["res://.godot/imported/CatchingBlocker-42291056f1b2744ef3299b1b9bab5e46_Boy01_diffuse.jpg-39d559a8fb16a56366a8e044ee363792.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

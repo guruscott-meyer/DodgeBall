@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmo3wx3tr0r7g"]
+
+[ext_resource type="Script" path="res://loose_ball_blocker.gd" id="1_3d7gm"]
+[ext_resource type="Texture2D" uid="uid://bsggin5ia11xx" path="res://13620-v4.jpg" id="2_ijlkq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3a60d"]
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uarer"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("2_ijlkq")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ok6yy"]
+material = SubResource("StandardMaterial3D_uarer")
+radius = 0.064
+height = 0.127
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ln7ci"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("2_ijlkq")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_drjsc"]
+custom_solver_bias = 1.0
+radius = 0.064
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7k4n1"]
+albedo_color = Color(0, 0.458824, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ifjps"]
+material = SubResource("StandardMaterial3D_7k4n1")
+size = Vector3(0.05, 0.05, 0.05)
+
+[node name="LooseBallBlocker" type="RigidBody3D" groups=["LooseBall"]]
+collision_layer = 2
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_3a60d")
+script = ExtResource("1_3d7gm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ok6yy")
+surface_material_override/0 = SubResource("StandardMaterial3D_ln7ci")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_drjsc")
+
+[node name="Highlight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.1, 0)
+visible = false
+mesh = SubResource("PrismMesh_ifjps")

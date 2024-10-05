@@ -1,0 +1,196 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwlcir8s3p734"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_45f4t"]
+[ext_resource type="Texture2D" uid="uid://bsggin5ia11xx" path="res://13620-v4.jpg" id="1_s7kuk"]
+
+[sub_resource type="SystemFont" id="SystemFont_kx650"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_celhe"]
+font = SubResource("SystemFont_kx650")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_eahic"]
+font = SubResource("SystemFont_kx650")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_1hltd"]
+font = SubResource("SystemFont_kx650")
+font_size = 20
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="PauseMenu" type="Node" parent="."]
+script = ExtResource("1_45f4t")
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.92, 16.28)
+texture = ExtResource("1_s7kuk")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PauseMenu"]
+
+[node name="Main" type="Control" parent="PauseMenu/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu/CanvasLayer/Main/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/CanvasLayer/Main/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="PauseMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPlay" type="Button" parent="PauseMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+text = "Return to Game"
+
+[node name="ButtonSettings" type="Button" parent="PauseMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+text = "Settings"
+
+[node name="ButtonQuit" type="Button" parent="PauseMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+text = "Main Menu
+"
+
+[node name="Settings" type="Control" parent="PauseMenu/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/CanvasLayer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu/CanvasLayer/Settings/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Settings
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DifficultyLabel" type="Label" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Difficulty"
+label_settings = SubResource("LabelSettings_celhe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DifficultySlider" type="HSlider" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+tick_count = 3
+
+[node name="LifeCountLabel" type="Label" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Life Count
+"
+label_settings = SubResource("LabelSettings_eahic")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="LifeCountSlider" type="HSlider" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+value = 5.0
+
+[node name="MobCountLabel" type="Label" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mob Count"
+label_settings = SubResource("LabelSettings_1hltd")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="MobCountSlider" type="HSlider" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+value = 5.0
+
+[node name="ButtonSettingsBack" type="Button" parent="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Back"
+
+[connection signal="pressed" from="PauseMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonPlay" to="PauseMenu" method="_on_button_play_pressed"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonSettings" to="PauseMenu" method="_on_button_settings_pressed"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonQuit" to="PauseMenu" method="_on_button_quit_pressed"]
+[connection signal="drag_ended" from="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/DifficultySlider" to="PauseMenu" method="_on_difficulty_slider_drag_ended"]
+[connection signal="drag_ended" from="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/LifeCountSlider" to="PauseMenu" method="_on_life_count_slider_drag_ended"]
+[connection signal="drag_ended" from="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/MobCountSlider" to="PauseMenu" method="_on_mob_count_slider_drag_ended"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/ButtonSettingsBack" to="PauseMenu" method="_on_button_settings_back_pressed"]
